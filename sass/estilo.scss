@@ -1,0 +1,374 @@
+$color1:#921D78;
+$color2:#108745;
+$color3:#F8C301;
+
+$textColor1:black;
+$textColor2:white;
+
+$textSize1:22px;
+$textSize2:1em;
+$textSize3:36px;
+$textSize4:46px;
+$textSize5:28px;
+
+// body
+body{
+    font-family: 'Raleway', sans-serif;
+
+}
+// 
+a{
+    text-decoration: none;
+}
+
+// navbar
+nav{
+  
+    .navContainer{
+        
+        border-bottom: 2px solid black;
+    }
+    #webNavBar{
+        font-size: $textSize1;
+      
+    }
+    #barraSocial{
+        a{
+            font-size: $textSize2 !important;
+
+        }
+
+
+    }
+     a{
+      color: $textColor1;
+       }    
+
+       .linkActivo{
+           font-weight:500;
+       }
+}
+// 
+// mainIndex
+main{
+    #mobileHeroText{
+        .mobileH1{
+            color: $color3  ;
+            font-size: $textSize3;
+            line-height: 1em;
+        }
+        .ctaPropiedades{
+            font-size: 24px;
+            color: $color2;
+        }
+        .contactoHero{
+            background-color: $color2;
+            color: $textColor2;
+            font-size: 20px;
+        }
+    }
+ 
+    #desktopHeroText{
+        .desktopH1{
+            color: $color1  ;
+            font-size: $textSize4;
+            line-height: 1em;
+        }
+        .ctaPropiedadesText{
+            color: $color2;
+            font-size: $textSize1;
+        }
+    }
+    .contactoHeroDesktop{
+        background-color: $color2;
+        color: $textColor2;
+        font-size: $textSize1;
+
+    }
+    .exploraBtn{
+        border-radius: 23px;
+        color: $textColor1;
+        background-color: $color3;
+        transition: all;
+        &:hover{
+            font-weight: bold;
+            img{
+                translate: 10px;
+            }
+        }
+    }
+}
+// 
+
+// servicios INDEX
+#servicios{
+    .p-mobile{
+        font-size: $textSize1;
+        span{
+            color: $color2;
+        }
+    }
+    .p-desktop{
+        font-size: $textSize3;
+        span{
+            color: $color2;
+        }
+    }
+    .serviciosTittle{
+        display: inline-block;
+        font-size: $textSize1;
+        font-weight: bold;
+        border-bottom: 3px solid $color1;
+    }
+    .servicioIcon{
+        padding-top: 3em;
+       &:hover{
+            font-weight: bold;
+        }
+    }
+    
+
+}
+.ctaExploraPropiedadesMobile{
+    text-decoration: none;
+    color: $textColor2;
+    background-color: $color2;
+    font-weight: bold;
+    font-size: $textSize1;
+    border-radius: 33px;
+  
+}
+
+
+.ctaExploraPropiedadesDesktop{
+    text-decoration: none;
+    color: $textColor1;
+    background-color: $textColor2;
+    border: 3px solid $color2   ;
+    font-weight: bold;
+    font-size: $textSize5;
+    border-radius: 33px;
+  
+}
+#bottomCta{
+    border-bottom: 2px solid black;
+}
+// 
+
+
+// propiedades.html
+#verPropiedades{
+    .imgContainer{
+
+
+        position: relative;
+        text-align: center;
+
+        .top-right {
+          
+            position: absolute;
+            top: 0px;
+            right: 1em;
+            color: $textColor2;
+            padding: 1em 2em;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 0px 0px 0px 5px; 
+          }
+    }
+
+  
+
+
+    .precio{
+        font-size: $textSize1   ;
+        span{
+            font-weight: bold;
+            color: black;
+        }
+        font-style: italic;
+        font-weight: 400;
+        color: rgb(59, 59, 59);
+    }
+
+
+    .verMas{
+        font-size: 1em;
+        font-weight: 600;
+        text-decoration: none;
+        color: $textColor1;
+        display: inline-block;
+        text-decoration: underline;
+        text-decoration-color: $color1;
+
+    }
+    .verMasLG{
+        img{
+            height: 46px;
+            width: auto;
+        }
+        font-size: 1.5em;
+        font-weight: 500;
+        text-decoration: none;
+        color: $textColor1;
+        display: inline-block;
+        text-decoration: underline;
+        text-decoration-color: $color1;
+        transition: all .102s ease-out;
+        
+        
+        &:hover{    
+            text-decoration-color: $color2;
+            font-weight: bold;
+        }
+    }
+
+
+
+}
+.direccionPublicacion{
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: #BCBCBC ;
+    color: $textColor1;
+
+}
+.direccionPublicacionDesktop{
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: #BCBCBC ;
+    color: $textColor1;
+    font-size: $textSize1;
+}
+// 
+.tituloDesktop{
+    font-size: 30px;
+}
+.descripcionDesktop{
+    border-left: 2px solid $color2;
+    border-right: 2px solid $color2;
+    font-size: 24px;
+}
+
+// propiedad Individual
+.borderDePublicacion{
+    border-bottom: 2px solid black;
+    background: rgba(88, 88, 88, 0.29);
+   
+}
+.ventaTag{
+    font-weight: 600;
+}
+.descripcion{
+    border-left: 2px solid $color2;
+    border-right: 2px solid $color2;
+
+}
+.ubiWebIcon{
+    height: 30px;
+    width: auto;
+
+}
+.peso{
+    font-size: 22px;
+}
+.contactarseDesktop{
+    font-size: 24px;
+    color: $textColor1;
+    border: 3px solid $color2;
+   
+    border-radius: 23px;
+    img{
+        height: 32px;
+        width: auto;
+    }
+    &:hover{
+        color: $textColor1;
+        font-weight: bold;
+    }
+}
+.consultarDesktop{
+    font-size: $textSize1;
+}
+
+.casaIndividualMobile{
+  
+    .contactarseMobile{
+        font-size: 18px;
+        color: $textColor1;
+        img{
+            height: 2em;
+            width: auto;
+           
+        }
+
+        &:hover{
+            font-weight: bold;
+        }
+
+    }   
+ 
+   
+}
+// 
+// footer
+footer{
+   
+    .direccion{
+        font-size: $textSize1;
+        align-items: baseline;
+        text-decoration: underline;
+        text-decoration-color: $color1;
+
+    }
+    .footerItem{
+        border-bottom: 2px solid $color1;
+        font-size: $textSize1;
+        align-items: baseline;
+    }
+    #comollegar{
+        display: inline-block;
+        text-decoration: none;
+        font-size: 80%;
+        color: $textColor1;
+    }
+    .dir{
+        span{
+            font-weight: bold;
+        }
+    }
+
+    a{
+        text-decoration: none;
+        color:$textColor1;
+        
+      
+    }
+    .footer-container {
+        font-family: Montserrat, sans-serif;
+        background-color: #050033;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .footer-container p {
+        font-size: 18px;
+        color: #426184;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    .footer-container p img {
+        vertical-align: middle;
+    }
+    .footer-container a{
+        color:#426184;
+    }
+    .footer-container p span {
+        color: #ffffff;
+    }
+}
+// 

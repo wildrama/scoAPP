@@ -1,0 +1,347 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav .navContainer {
+  border-bottom: 2px solid black;
+}
+
+nav #webNavBar {
+  font-size: 22px;
+}
+
+nav #barraSocial a {
+  font-size: 1em !important;
+}
+
+nav a {
+  color: black;
+}
+
+nav .linkActivo {
+  font-weight: 500;
+}
+
+main #mobileHeroText .mobileH1 {
+  color: #F8C301;
+  font-size: 36px;
+  line-height: 1em;
+}
+
+main #mobileHeroText .ctaPropiedades {
+  font-size: 24px;
+  color: #108745;
+}
+
+main #mobileHeroText .contactoHero {
+  background-color: #108745;
+  color: white;
+  font-size: 20px;
+}
+
+main #desktopHeroText .desktopH1 {
+  color: #921D78;
+  font-size: 46px;
+  line-height: 1em;
+}
+
+main #desktopHeroText .ctaPropiedadesText {
+  color: #108745;
+  font-size: 22px;
+}
+
+main .contactoHeroDesktop {
+  background-color: #108745;
+  color: white;
+  font-size: 22px;
+}
+
+main .exploraBtn {
+  border-radius: 23px;
+  color: black;
+  background-color: #F8C301;
+  -webkit-transition: all;
+  transition: all;
+}
+
+main .exploraBtn:hover {
+  font-weight: bold;
+}
+
+main .exploraBtn:hover img {
+  translate: 10px;
+}
+
+#servicios .p-mobile {
+  font-size: 22px;
+}
+
+#servicios .p-mobile span {
+  color: #108745;
+}
+
+#servicios .p-desktop {
+  font-size: 36px;
+}
+
+#servicios .p-desktop span {
+  color: #108745;
+}
+
+#servicios .serviciosTittle {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  border-bottom: 3px solid #921D78;
+}
+
+#servicios .servicioIcon {
+  padding-top: 3em;
+}
+
+#servicios .servicioIcon:hover {
+  font-weight: bold;
+}
+
+.ctaExploraPropiedadesMobile {
+  text-decoration: none;
+  color: white;
+  background-color: #108745;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 33px;
+}
+
+.ctaExploraPropiedadesDesktop {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid #108745;
+  font-weight: bold;
+  font-size: 28px;
+  border-radius: 33px;
+}
+
+#bottomCta {
+  border-bottom: 2px solid black;
+}
+
+#verPropiedades .imgContainer {
+  position: relative;
+  text-align: center;
+}
+
+#verPropiedades .imgContainer .top-right {
+  position: absolute;
+  top: 0px;
+  right: 1em;
+  color: white;
+  padding: 1em 2em;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0px 0px 0px 5px;
+}
+
+#verPropiedades .precio {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  color: #3b3b3b;
+}
+
+#verPropiedades .precio span {
+  font-weight: bold;
+  color: black;
+}
+
+#verPropiedades .verMas {
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #921D78;
+          text-decoration-color: #921D78;
+}
+
+#verPropiedades .verMasLG {
+  font-size: 1.5em;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #921D78;
+          text-decoration-color: #921D78;
+  -webkit-transition: all .102s ease-out;
+  transition: all .102s ease-out;
+}
+
+#verPropiedades .verMasLG img {
+  height: 46px;
+  width: auto;
+}
+
+#verPropiedades .verMasLG:hover {
+  -webkit-text-decoration-color: #108745;
+          text-decoration-color: #108745;
+  font-weight: bold;
+}
+
+.direccionPublicacion {
+  font-weight: 400;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #BCBCBC;
+          text-decoration-color: #BCBCBC;
+  color: black;
+}
+
+.direccionPublicacionDesktop {
+  font-weight: 400;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #BCBCBC;
+          text-decoration-color: #BCBCBC;
+  color: black;
+  font-size: 22px;
+}
+
+.tituloDesktop {
+  font-size: 30px;
+}
+
+.descripcionDesktop {
+  border-left: 2px solid #108745;
+  border-right: 2px solid #108745;
+  font-size: 24px;
+}
+
+.borderDePublicacion {
+  border-bottom: 2px solid black;
+  background: rgba(88, 88, 88, 0.29);
+}
+
+.ventaTag {
+  font-weight: 600;
+}
+
+.descripcion {
+  border-left: 2px solid #108745;
+  border-right: 2px solid #108745;
+}
+
+.ubiWebIcon {
+  height: 30px;
+  width: auto;
+}
+
+.peso {
+  font-size: 22px;
+}
+
+.contactarseDesktop {
+  font-size: 24px;
+  color: black;
+  border: 3px solid #108745;
+  border-radius: 23px;
+}
+
+.contactarseDesktop img {
+  height: 32px;
+  width: auto;
+}
+
+.contactarseDesktop:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.consultarDesktop {
+  font-size: 22px;
+}
+
+.casaIndividualMobile .contactarseMobile {
+  font-size: 18px;
+  color: black;
+}
+
+.casaIndividualMobile .contactarseMobile img {
+  height: 2em;
+  width: auto;
+}
+
+.casaIndividualMobile .contactarseMobile:hover {
+  font-weight: bold;
+}
+
+footer .direccion {
+  font-size: 22px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #921D78;
+          text-decoration-color: #921D78;
+}
+
+footer .footerItem {
+  border-bottom: 2px solid #921D78;
+  font-size: 22px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+footer #comollegar {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 80%;
+  color: black;
+}
+
+footer .dir span {
+  font-weight: bold;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+footer .footer-container {
+  font-family: Montserrat, sans-serif;
+  background-color: #050033;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .footer-container p {
+  font-size: 18px;
+  color: #426184;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+footer .footer-container p img {
+  vertical-align: middle;
+}
+
+footer .footer-container a {
+  color: #426184;
+}
+
+footer .footer-container p span {
+  color: #ffffff;
+}
+/*# sourceMappingURL=estilo.css.map */
