@@ -1,15 +1,20 @@
-// if(process.env.NODE_ENV !== "production") {
-//   require('dotenv').config();
-// }
+if(process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
 const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
 const methodOverride = require('method-override')
+
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+
+
 const mongoose = require('mongoose');
 // require mongoose models
 const Propiedad = require('./models/propiedad.js');
-
+const Usuario = require('./models/usuario.js');
 // utils
 const catchAsync =require('./utils/catchAsync');
 const ExpressError=require('./utils/ExpressError');
@@ -17,10 +22,17 @@ const ExpressError=require('./utils/ExpressError');
 
 // session
 const session =  require('express-session')
-const sessionOptions ={secret:'thisisnotagoodsecret',resave: false,saveUninitialized: true,};
 
-
-
+const sessionConfig = {
+  secret: 'thisshouldbeabettersecret!',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+      httpOnly: true,
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+      maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+}
 // routes
 
 const admRoutes =require('./routes/administrador');
@@ -46,24 +58,40 @@ app.use(express.static('public'));
 app.use(express.static('files'));
 
 // views and methodOverride
-app.set('views', path.join(__dirname, '/views'))
+// app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended:true}));
+app.set('views', path.join(__dirname, 'views'))
+
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')))
+
 // sessionMiddleware
-app.use(session(sessionOptions)); 
+app.use(session(sessionConfig)); 
+
 //  flash middleware  
 
-app.get('/register', (req,res)=>{
-  const{username = 'Sin Usuario'} = req.query;
-  req.session.username = username;
-  res.redirect('/greet')
+
+app.use((req, res, next) => {
+  console.log(req.session)
+  res.locals.currentUser = req.user;
+  res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
+  next();
 })
 
-app.get('/greet', (req,res)=>{
-  const{username } = req.session;
-res.send(`bienvenido devuelta ${username}`)
-})
+
+
+// passport
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(Usuario.authenticate()));
+
+passport.serializeUser(Usuario.serializeUser());
+passport.deserializeUser(Usuario.deserializeUser());
+
+
 
 
 
@@ -74,12 +102,15 @@ app.get('/', (req, res) => {
 
 
 // error midller ware base
+app.all('*', (req, res, next) => {
+  next(new ExpressError('Pagina no encontrada', 404))
+})
 
 app.use(function (err, req, res, next) {
   const {statusCode = 500, message='Algo salio mal'}= err;
   console.error(err.stack)
   res.status(statusCode).render('errors')
-});
+}); 
 
 
 // endAPP
