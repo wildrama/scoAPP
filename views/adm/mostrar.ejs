@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate')%>
+<div class="propiedades">
+    <h2>Todas las propiedades</h2>
+
+   
+    <div class="row">
+        <!-- casa1 -->
+        <% for (let propiedad of propiedades){ %> 
+        <div class="col-12  my-4 mt-lg-3">
+            <div class="row">
+                <div class="col-12 col-lg-4 text-center imgContainer">
+                    <img class="img-fluid" src="/img/propiedades/casa1/1.webp" alt="casa1">
+                </div>
+                <div class="col-12 col-lg-8 px-lg-4">
+                    <h2 class="text-center text-lg-start py-3 py-lg-1">
+                        <%=propiedad.titulo %>
+                    </h2>
+                    <h3 class="direccionPublicacion text-center text-lg-start"><span class=" mx-2"><img
+                                src="/svg/ubi.svg" alt="ubicacion"></span><%=propiedad.direccion %></h3>
+
+                    <div class="row  py-3">
+                        <div class="col-6 d-lg-none d-flex justify-content-center">
+                            <p class=" precio"> <span>$</span> Consultar</p>
+                        </div>
+                        <div class="col-6 d-none px-lg-4 d-lg-block">
+                            <p class=" precio"> <span>$</span> Consultar</p>
+                        </div>
+                        <div class="col-6 d-flex d-flex justify-content-center ">
+                         
+                            <a class="d-none d-lg-block verMasLG px-5  mx-5 " href="/propiedades/<%=propiedad._id%>">
+                                <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
+                                Ver Más</a>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <%}  %> 
+</div>

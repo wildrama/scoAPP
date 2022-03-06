@@ -12,8 +12,6 @@ const propiedadSchema = new mongoose.Schema({
       type:String,
     },
   
-    
-   
     descripcion:{
         type:String
 

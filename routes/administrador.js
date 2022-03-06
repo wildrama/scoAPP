@@ -2,16 +2,25 @@ const express = require('express');
 const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const ExpressError=require('../utils/ExpressError');
+const Usuario = require('../models/usuario');
 
-const Propiedad = require('../models/propiedad.js');
+const Propiedad = require('../models/propiedad');
 // CRUD ADMINNN
+router.get('/inicio', catchAsync(async(req,res)=>{
+const user = new Usuario({email:'rambo1bc@hotmail.com',username: 'scorcelli',password:'123456'})
+  const nuevoUsuario= await User.register(user,'123456')
+  res.send(nuevoUsuario);
+})) 
+
 // RENDER VER mostrar elementos Inicio de CRUD ADMIN
-router.get('/', async (req, res) => {
+router.get('/', catchAsync(async (req, res) => {
     const propiedades = await Propiedad.find({});
     
     res.render('adm/mostrar',{propiedades});
     
-  });
+  })) ;
+
+
   // RENDER agregar elemento
   
   router.get('/nuevo', (req,res) =>{

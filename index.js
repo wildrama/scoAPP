@@ -6,6 +6,7 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const methodOverride = require('method-override')
+const flash = require('connect-flash');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -37,7 +38,7 @@ const sessionConfig = {
 
 const admRoutes =require('./routes/administrador');
 const userUiRoutes= require('./routes/propiedades')
-
+const rutasUsuario = require('./routes/usuario')
 main().catch(err => console.log(err));
 
 async function main() {
@@ -48,10 +49,7 @@ async function main() {
   console.log("everything abot db is OK")
 }
 
-
-// Routes
-app.use('/administrador',admRoutes);
-app.use('/propiedades',userUiRoutes);
+app.use(express.json());
 
 // statics files
 app.use(express.static('public'));
@@ -72,17 +70,19 @@ app.use(session(sessionConfig));
 //  flash middleware  
 
 
-app.use((req, res, next) => {
-  console.log(req.session)
-  res.locals.currentUser = req.user;
-  res.locals.success = req.flash('success');
-  res.locals.error = req.flash('error');
-  next();
-})
+// app.use((req, res, next) => {
+//   console.log(req.session)
+//   res.locals.currentUser = req.user;
+//   res.locals.success = req.flash('success');
+//   res.locals.error = req.flash('error');
+//   next();
+// })
 
 
 
 // passport
+
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -93,7 +93,19 @@ passport.deserializeUser(Usuario.deserializeUser());
 
 
 
+app.use((req, res, next) => {
+  console.log(req.session)
+  res.locals.currentUser = req.user;
+  res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
+  next();
+})
 
+
+// Routes
+app.use('/administrador',admRoutes);
+app.use('/propiedades',userUiRoutes);
+app.use('/', rutasUsuario )
 
 // RENDER HOME
 app.get('/', (req, res) => {
@@ -106,10 +118,12 @@ app.all('*', (req, res, next) => {
   next(new ExpressError('Pagina no encontrada', 404))
 })
 
+
+
 app.use(function (err, req, res, next) {
   const {statusCode = 500, message='Algo salio mal'}= err;
   console.error(err.stack)
-  res.status(statusCode).render('errors')
+  res.status(statusCode).render('errors',err)
 }); 
 
 
