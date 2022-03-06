@@ -3,10 +3,12 @@ if(process.env.NODE_ENV !== "production") {
 }
 const express = require('express');
 const app = express();
+
 const port = 3000;
 const path = require('path');
 const methodOverride = require('method-override')
 const flash = require('connect-flash');
+const ejsMate = require('ejs-mate');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -57,12 +59,14 @@ app.use(express.static('files'));
 
 // views and methodOverride
 // app.engine('ejs', ejsMate)
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
+
 
 // sessionMiddleware
 app.use(session(sessionConfig)); 
@@ -121,9 +125,9 @@ app.all('*', (req, res, next) => {
 
 
 app.use(function (err, req, res, next) {
-  const {statusCode = 500, message='Algo salio mal'}= err;
-  console.error(err.stack)
-  res.status(statusCode).render('errors',err)
+  const { statusCode = 500 } = err;
+  if (!err.message) err.message = 'Algo salio mal!'
+  res.status(statusCode).render('errors', { err })
 }); 
 
 
