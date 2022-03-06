@@ -3,6 +3,7 @@ const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const ExpressError=require('../utils/ExpressError');
 const Usuario = require('../models/usuario');
+const passport = require('passport');
 
 router.get('/registro',  (req,res)=>{
 res.render('adm/registro');
@@ -20,11 +21,29 @@ router.post('/registro', catchAsync(async(req,res)=>{
             res.redirect('/administrador');
         })
     } catch (e) {
-        req.flash('error', e.message);
+        const errorRegisterMSG = 'Ya existe un usuario con ese nombre'
+        req.flash('error', errorRegisterMSG);
         res.redirect('/registro');
     }
    
-}))
+}));
+
+router.get('/ingresar', (req, res) => {
+    res.render('adm/iniciosesion');
+})
+
+router.post('/ingresar', passport.authenticate('local', { failureFlash: true, failureRedirect: '/ingresar' }), (req, res) => {
+    req.flash('success', 'Bienvenido devuelta');
+    const redirectUrl = req.session.returnTo || '/administrador';
+    delete req.session.returnTo;
+    res.redirect(redirectUrl);
+})
+
+router.get('/cerrarsesion', (req, res) => {
+    req.logout();
+    req.flash('success', "Hasta pronto");
+    res.redirect('/propiedades');
+})
 
 
 module.exports= router;

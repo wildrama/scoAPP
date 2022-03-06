@@ -1,3 +1,10 @@
+// continuar proceso de login, y autorizacion. Armar el carrusel dinamico y la suba de imagenes.
+// corregir errores de interfaz
+// poner app en produccion
+// deploy en cloud server.
+// COBRAR
+
+
 if(process.env.NODE_ENV !== "production") {
   require('dotenv').config();
 }
