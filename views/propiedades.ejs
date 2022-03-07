@@ -30,10 +30,38 @@
 
                         <div class="row  py-3">
                             <div class="col-6 d-lg-none d-flex justify-content-center">
-                                <p class=" precio"> <span>$</span> Consultar</p>
+                                <p class=" precio">
+                                    <% if(!propiedad.precio){ %>
+
+                                        <span>
+                                            $--Consultar
+                                        </span>
+    
+                                    <% } else{ %>
+                                        <span>
+                                        <%=propiedad.precio %> 
+                                    </span>
+                                 <%     }  %> 
+                                     
+                                     </p>
                             </div>
                             <div class="col-6 d-none px-lg-4 d-lg-block">
-                                <p class=" precio"> <span>$</span> Consultar</p>
+                                <p class=" precio">
+                                    
+                                    <% if(!propiedad.precio){ %>
+
+                                        <span>
+                                            $
+                                        <  /span>
+    
+                                    <% } else{ %>
+                                        <span>
+                                        <%=propiedad.precio %> 
+                                    </span>
+                                 <%     }  %> 
+                                    
+                                    
+                                    Consultar</p>
                             </div>
                             <div class="col-6 d-flex d-flex justify-content-center ">
                              

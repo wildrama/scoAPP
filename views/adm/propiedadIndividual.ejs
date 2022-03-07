@@ -3,9 +3,9 @@
   <div class="container">
     <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
             Inicio</a></li>
-        <li class="breadcrumb-item"><a href="/propiedades"> Propiedades</a></li>
+        <li class="breadcrumb-item"><a href="/administrador"> Administrador</a></li>
         <li class="breadcrumb-item active" aria-current="page"> <%= propiedad.titulo %> </li>
       </ol>
     </nav>
@@ -48,7 +48,6 @@
             </div>
             <div class="row  mt-5 align-items-baseline ">
               <div class="col-6 d-flex px-4 peso">
-                
                 <p class=" precio">
                   <% if(!propiedad.precio){ %>
 
@@ -65,11 +64,7 @@
                 
 </p>
               </div>
-              <div class="col-6 ">
-                <a class="mx-4 py-2 px-2 d-flex  contactarseDesktop" href="https://wa.me/543329561425">
-                  <img class=" px-2 " src="/svg/wpicon.svg" alt="Icono Telefono">
-                  Contactarse</a>
-              </div>
+              
             </div>
           </div>
         </div>

@@ -5,6 +5,9 @@ const propiedadSchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    tipo: {
+      type :String,
+    },
     precio :{
       type:Number,
     },

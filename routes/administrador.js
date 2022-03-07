@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const ExpressError=require('../utils/ExpressError');
-const Usuario = require('../models/usuario');
-
+const {isLoggedIn} = require('../middleware');
 const Propiedad = require('../models/propiedad');
 // CRUD ADMINNN
 // router.get('/inicio', catchAsync(async(req,res)=>{
@@ -13,7 +12,7 @@ const Propiedad = require('../models/propiedad');
 // })) 
 
 // RENDER VER mostrar elementos Inicio de CRUD ADMIN
-router.get('/', catchAsync(async (req, res) => {
+router.get('/', isLoggedIn,catchAsync(async (req, res) => {
     const propiedades = await Propiedad.find({});
     
     res.render('adm/mostrar',{propiedades});
@@ -23,12 +22,12 @@ router.get('/', catchAsync(async (req, res) => {
 
   // RENDER agregar elemento
   
-  router.get('/nuevo', (req,res) =>{
-    res.render('adm/crear');
+  router.get('/nueva',isLoggedIn,(req,res) =>{
+    res.render('adm/crearpropiedad');
   });
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
-  router.post('/', catchAsync( async (req,res)=>{
+  router.post('/',isLoggedIn, catchAsync( async (req,res)=>{
    const nuevaPropiedad = new Propiedad (req.body);
    await nuevaPropiedad.save();
     res.redirect(`/administrador/${nuevaPropiedad._id}`)
@@ -37,15 +36,15 @@ router.get('/', catchAsync(async (req, res) => {
   
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
-  router.get('/:id/edit',catchAsync( async (req,res) =>{
+  router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
     const propiedad = await Propiedad.findById(id);
-    res.render('stock/editar', {propiedad})
+    res.render('adm/editarpropiedad', {propiedad})
   }));
   
   // ENVIAR PUT REQUEST
   
-  router.put('/:id', catchAsync( async (req,res)=>{
+  router.put('/:id', isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
   const propiedad = await Propiedad.findByIdAndUpdate(id, req.body,{runValidators:true});
   res.redirect(`/administrador/${propiedad.id}`)
@@ -55,16 +54,16 @@ router.get('/', catchAsync(async (req, res) => {
   
   
   // RENDER STOCK INDIVIDUAL
-  router.get('/:id', catchAsync(async (req, res) =>{
+  router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
     const {id} = req.params;
    const propiedad = await Propiedad.findById(id)
-   res.render('administrador/propiedadIndividual',{propiedad});
+   res.render('adm/propiedadIndividual',{propiedad});
   } ))
   
   
   // BORRAR STOCK INDIVIDUAL
   
-  router.delete('/:id' , catchAsync(async (req, res)=>{
+  router.delete('/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
     const {id}= req.params;
     const deletedPropiedad= await Propiedad.findByIdAndDelete(id);
     res.redirect('/administrador');

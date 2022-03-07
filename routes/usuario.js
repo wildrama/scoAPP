@@ -33,7 +33,7 @@ router.get('/ingresar', (req, res) => {
 })
 
 router.post('/ingresar', passport.authenticate('local', { failureFlash: true, failureRedirect: '/ingresar' }), (req, res) => {
-    req.flash('success', 'Bienvenido devuelta');
+    req.flash('success', 'Bienvenido');
     const redirectUrl = req.session.returnTo || '/administrador';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
@@ -41,8 +41,8 @@ router.post('/ingresar', passport.authenticate('local', { failureFlash: true, fa
 
 router.get('/cerrarsesion', (req, res) => {
     req.logout();
-    req.flash('success', "Hasta pronto");
-    res.redirect('/propiedades');
+    req.flash('success', "Cerraste la sesion administrador");
+    res.redirect('/');
 })
 
 
