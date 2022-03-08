@@ -1,8 +1,9 @@
 <% layout('layouts/boilerplate')%>
-<div class="container">
+  <div class="container">
     <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg"
+                alt="atras"></span>
             Inicio</a></li>
         <li class="breadcrumb-item"><a href="/administrador"> Administrador</a></li>
         <li class="breadcrumb-item active" aria-current="page"> Crear publicación </li>
@@ -10,50 +11,69 @@
     </nav>
 
   </div>
-<div class="container">
+  <div class="container">
     <div class="row mt-3">
-        <h4 class="h4 text-center">Crear publicación</h4>
+      <h4 class="h4 text-center">Crear publicación</h4>
 
-        <div class="col-4"></div>
-        <div class="col-12 col-lg-4 tex">
-            <form action="/administrador" method="post">
-                <label for="tipo">Tipo de publicación</label>
-                <select class="form-select" aria-label="Default select example">
+      <div class="col-4"></div>
+      <div class="col-12 col-lg-4 tex">
+        <form action="/administrador" method="post" enctype="multipart/form-data">
+
+          <label for="tipo">Tipo de publicación</label>
+          <div class="form-check">
+            <input value="Venta" class="form-check-input" type="radio" name="tipo" id="tipoventa">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Venta
+            </label>
+          </div>
+          <div class="form-check">
+            <input value="Alquiler" class="form-check-input" type="radio" name="tipo" id="tipoalquiler"
+              checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+               Alquiler
+            </label>
+          </div>
+          <!-- <div class="input-group mb-3">
+              <input type="text" name="tipo" class="form-control" id="tipo" >
+            </div> -->
+          <!-- <select class="form-select" aria-label="Default select example">
                     <option selected value="venta">Venta</option>
-                    <option value="tipo">Tipo</option>
-                  </select>
+                    <option value="alquiler">Alquiler</option>
+                  </select> -->
 
-            <label for="titulo" class="form-label">Titulo de la publicación</label>
-            <div class="input-group mb-3">
-              <input type="text" name="titulo" class="form-control" id="titulo" >
-            </div>
+          <label for="titulo" class="form-label">Titulo de la publicación</label>
+          <div class="input-group mb-3">
+            <input type="text" name="titulo" class="form-control" id="titulo">
+          </div>
 
 
-            <label for="descripcion" class="form-label">Descripcion de la publicación</label>
-            <div class="input-group mb-3">
-              <input type="text" name="descripcion" class="form-control" id="descripcion" >
-            </div>
-        
-            <div class="mb-3">
-                <label for="formFileMultiple" class="form-label">Subir Imagenes</label>
-                <input class="form-control" name="imagenes" type="file" id="formFileMultiple" multiple>
-              </div>
-              
+          <label for="descripcion" class="form-label">Descripcion de la publicación</label>
+          <div class="input-group mb-3">
+            <input type="text" name="descripcion" class="form-control" id="descripcion">
+          </div>
 
-              <label for="precio" class="form-label">Precio de la publicación</label>
-            <div class="input-group mb-3">
-              <input type="text" name="precio" class="form-control" id="precio" >
-            </div>
 
-            <label for="direccion" class="form-label">Dirección de la publicación</label>
-            <div class="input-group mb-3">
-              <input type="text" name="direccion" class="form-control" id="direccion" >
-            </div>
 
-            <button type="submit" class="btn btn-primary px-5 py-3">Cargar</button>
+
+          <label for="precio" class="form-label">Precio de la publicación</label>
+          <div class="input-group mb-3">
+            <input type="text" name="precio" class="form-control" id="precio">
+          </div>
+
+          <label for="direccion" class="form-label">Dirección de la publicación</label>
+          <div class="input-group mb-3">
+            <input type="text" name="direccion" class="form-control" id="direccion">
+          </div>
+
+          <div class="mb-3">
+            <label for="imagenes" class="form-label">Subir Imagenes</label>
+            <input class="form-control" name="imagenes" type="file" id="imagenes" multiple>
+          </div>
+
+          <button type="submit" class="btn btn-primary px-5 py-3">Cargar</button>
         </form>
+      </div>
+      <div class="col-4"></div>
     </div>
-        <div class="col-4"></div>
-    </div>
- 
-</div>
+
+  </div>

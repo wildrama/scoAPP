@@ -4,6 +4,9 @@ const catchAsync =require('../utils/catchAsync');
 const ExpressError=require('../utils/ExpressError');
 const {isLoggedIn} = require('../middleware');
 const Propiedad = require('../models/propiedad');
+const storage = require('../cloudinary/index');
+const multer = require('multer');
+const upload = multer(storage);
 // CRUD ADMINNN
 // router.get('/inicio', catchAsync(async(req,res)=>{
 // const user = new Usuario({email:'rambo1bc@hotmail.com',username: 'scorcelli',password:'123456'})
@@ -27,11 +30,14 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   });
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
-  router.post('/',isLoggedIn, catchAsync( async (req,res)=>{
+  router.post('/',upload.array('imagenes'),isLoggedIn, catchAsync( async (req,res)=>{
    const nuevaPropiedad = new Propiedad (req.body);
+   nuevaPropiedad.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    console.log(nuevaPropiedad);
    await nuevaPropiedad.save();
     res.redirect(`/administrador/${nuevaPropiedad._id}`)
-  } ));
+
+    } ));
   
   
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos

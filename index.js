@@ -11,7 +11,7 @@ if(process.env.NODE_ENV !== "production") {
 const express = require('express');
 const app = express();
 
-const port = 3000;
+const port = 3003;
 const path = require('path');
 const methodOverride = require('method-override')
 const flash = require('connect-flash');
@@ -19,6 +19,7 @@ const ejsMate = require('ejs-mate');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const multer = require('multer');
 
 
 const mongoose = require('mongoose');
@@ -126,7 +127,7 @@ app.get('/', (req, res) => {
 
 // error midller ware base
 app.all('*', (req, res, next) => {
-  next(new ExpressError('Pagina no encontrada', 404))
+  next(new ExpressError('Esta pagina no existe. Vulve al Inicio', 404))
 })
 
 
