@@ -19,7 +19,11 @@
             <div class="col-12  my-4 mt-lg-3">
                 <div class="row">
                     <div class="col-12 col-lg-4 text-center imgContainer">
-                        <img class="img-fluid" src="/img/propiedades/casa1/1.webp" alt="casa1">
+                            <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
+
+
+                        <p class="top-right"><%= propiedad.tipo %> </p>
+
                     </div>
                     <div class="col-12 col-lg-8 px-lg-4">
                         <h2 class="text-center text-lg-start py-3 py-lg-1">
@@ -34,7 +38,7 @@
                                     <% if(!propiedad.precio){ %>
 
                                         <span>
-                                            $--Consultar
+                                           <strong>$--</strong> Consultar
                                         </span>
     
                                     <% } else{ %>
@@ -61,13 +65,17 @@
                                  <%     }  %> 
                                     
                                     
-                                    Consultar</p>
+                                    </p>
                             </div>
-                            <div class="col-6 d-flex d-flex justify-content-center ">
+                            <div class="col-12 col-lg-6 d-flex justify-content-center ">
                              
-                                <a class="d-none d-lg-block verMasLG px-5  mx-5 " href="/propiedades/<%=propiedad._id%>">
+                                <a class="d-lg-none verMasLG px-5  mx-5 " href="/propiedades/<%=propiedad._id%>">
                                     <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
                                     Ver Más</a>
+
+                                    <a class="d-none d-lg-block verMasLG px-5  mx-5 " href="/propiedades/<%=propiedad._id%>">
+                                        <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
+                                        Ver Más</a>
                             </div>
 
 
