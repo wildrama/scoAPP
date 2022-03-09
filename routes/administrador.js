@@ -45,6 +45,10 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
     const propiedad = await Propiedad.findById(id);
+    if (!propiedad) {
+      req.flash('error', 'No se puede encontrar la publicación');
+      return res.redirect('/administrador');
+  }
     res.render('adm/editarpropiedad', {propiedad})
   }));
   
@@ -52,7 +56,13 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   
   router.put('/:id', isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
-  const propiedad = await Propiedad.findByIdAndUpdate(id, req.body,{runValidators:true});
+  const imgs = []
+  console.log(req.body);
+  const propiedad = await Propiedad.findByIdAndUpdate(id, { ...req.body });
+  imgs = [req.files.map(f => ({ url: f.path, filename: f.filename }))];
+  propiedad.imagenes.push(...imgs);
+  await propiedad.save();
+  req.flash('success', 'Publicación actualizada correctamente');
   res.redirect(`/administrador/${propiedad.id}`)
   
   }))
@@ -62,6 +72,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   // RENDER STOCK INDIVIDUAL
   router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
     const {id} = req.params;
+    
    const propiedad = await Propiedad.findById(id)
    res.render('adm/propiedadIndividual',{propiedad});
   } ))
