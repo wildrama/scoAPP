@@ -72,53 +72,71 @@
           <div class="ventaTag">
             Venta
           </div>
-          <!-- Carousel wrapper -->
-          <div id="carouselExampleIndicators2" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-            <!-- Slides -->
-            <div class="carousel-inner mb-5">
-              <div class="carousel-item active">
-                <img src="" class="d-block w-100" alt="IMAGEN" />
-              </div>
-              <div class="carousel-item">
-                <img src="" class="d-block w-100" alt="IMAGEN" />
-              </div>
-              <div class="carousel-item">
-                <img src="" class="d-block w-100" alt="IMAGEN" />
-              </div>
-            </div>
-            <!-- Slides -->
+        <!-- Carousel wrapper -->
+<div
+id="carouselExampleIndicators"
+class="carousel carousel-dark slide carousel-fade"
+data-mdb-ride="carousel"
+>
+<!-- Slides -->
+<div class="carousel-inner mb-5">
+  <% propiedad.imagenes.forEach( ( imagen , i ) => { %> 
 
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators2"
-              data-mdb-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators2"
-              data-mdb-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-            <!-- Controls -->
+  <div class="carousel-item <%= i === 0? 'active':''%>">
+    <img src="<%= imagen.url %>" class="d-block w-100" alt="..." />
+  </div>
+  <% }) %> 
 
-            <!-- Thumbnails -->
-            <div class="carousel-indicators" style="margin-bottom: -20px;">
-              <button type="button" data-mdb-target="#carouselExampleIndicators2" data-mdb-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1" style="width: 100px;">
-                <img class="d-block w-100" src="" class="img-fluid" />
-              </button>
-              <button type="button" data-mdb-target="#carouselExampleIndicators2" data-mdb-slide-to="1"
-                aria-label="Slide 2" style="width: 100px;">
-                <img class="d-block w-100" src="" class="img-fluid" />
-              </button>
-              <button type="button" data-mdb-target="#carouselExampleIndicators2" data-mdb-slide-to="2"
-                aria-label="Slide 3" style="width: 100px;">
-                <img class="d-block w-100" src="" class="img-fluid" />
-              </button>
-            </div>
-            <!-- Thumbnails -->
-          </div>
-          <!-- Carousel wrapper -->
+  
+</div>
+<!-- Slides -->
+
+<!-- Controls -->
+<button
+  class="carousel-control-prev"
+  type="button"
+  data-mdb-target="#carouselExampleIndicators"
+  data-mdb-slide="prev"
+>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button
+  class="carousel-control-next"
+  type="button"
+  data-mdb-target="#carouselExampleIndicators"
+  data-mdb-slide="next"
+>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
+<!-- Controls -->
+
+<!-- Thumbnails -->
+<div class="carousel-indicators" style="margin-bottom: -20px;">
+  <% propiedad.imagenes.forEach( ( imagen , i ) => { %> 
+
+  <button
+    type="button"
+    data-mdb-target="#carouselExampleIndicators"
+    data-mdb-slide-to="<%= i %> "
+    class="<%= i === 0? 'active':''%>"
+    aria-current="true"
+    aria-label="Slide 1"
+    style="width: 100px;"
+  >
+    <img
+      class="d-block w-100"
+      src="<%= imagen.url %>"
+      class="img-fluid"
+    />
+  </button>
+  <% }) %> 
+
+</div>
+<!-- Thumbnails -->
+</div>
+<!-- Carousel wrapper -->
         </div>
 
       </div>

@@ -30,7 +30,7 @@
         <div class="col-6 my-4 mt-lg-3">
             <div class="row">
                 <div class="col-12 col-lg-4 text-center imgContainer">
-                    <img class="img-fluid" src="/cloudinary/fotoportada" alt="casa1">
+                    <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
                 </div>
                 <div class="col-12 col-lg-8 px-lg-4">
                     <h2 class="text-center text-lg-start py-3 py-lg-1">
@@ -94,9 +94,33 @@
                             <a class="btn btn-outline-primary" href="/administrador/<%=propiedad._id%>/editar">Editar publicación</a>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <form action="/administrador/<%=propiedad._id%>?_method=DELETE" method="post">
-                                <button class="btn btn-outline-warning">Eliminar publicacion</button>
-                            </form>                    
+
+
+                            <!-- Button trigger modal -->
+
+
+  
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarpublicacion">
+    Eliminar publicación
+  </button>
+    <!-- Modal -->
+    <div class="modal fade" id="eliminarpublicacion" tabindex="-1" aria-labelledby="eliminarpublicacionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="eliminarpublicacionLabel">Estas seguro de eliminar la publicación?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <form action="/administrador/<%=propiedad._id%>?_method=DELETE" method="post">
+                <button class="btn btn-outline-warning">Eliminar publicacion</button>
+            </form>          </div>
+          </div>
+        </div>
+      </div>
+                     
                             </div>
                     </div>
                 </div>

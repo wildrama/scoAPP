@@ -6,10 +6,14 @@ const ImagenSchema = new Schema({
   
     url : String,
    filename: String
-   
 })
 ImagenSchema.virtual('thumbnail').get(function() {
   return this.url.replace('/upload', '/upload/w_200');
+});
+
+ImagenSchema.virtual('crop').get(function(){
+
+  return this.url.replace('/upload', '/upload/c_scale,h_600,w_800');
 })
 const propiedadSchema = new mongoose.Schema({
     titulo : {
