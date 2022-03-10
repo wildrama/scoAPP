@@ -58,7 +58,6 @@ async function main() {
   });
   console.log("everything abot db is OK")
 }
-
 app.use(express.json());
 
 // statics files

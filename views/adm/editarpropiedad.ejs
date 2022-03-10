@@ -13,8 +13,8 @@
 <div class="container">
     <div class="row mt-3">
         <h4 class="h4">Crear publicación.</h4>
-        <div class="col-4"></div>
-        <div class="col-12 col-lg-4 tex">
+        <div class="col-lg-2"></div>
+        <div class="col-12 col-lg-8 tex">
             <form action="/administrador/<%= propiedad._id %>?_method=PUT" method="post"  enctype="multipart/form-data">
 
               <label for="tipo">Tipo de publicación</label>
@@ -56,13 +56,28 @@
 
 
             <div class="mb-3">
-              <label for="imagenes" class="form-label">Actualizar Imagenes</label>
+              <label for="imagenes" class="form-label">Subir más imagenes</label>
               <input class="form-control" name="imagenes" type="file" id="imagenes" multiple>
             </div>
+
+            
+            <div class="mb-3">
+              <label for="imagenesDelete" class="form-label">Eliminar Imagenes</label>
+
+              <% propiedad.imagenes.forEach(function(img, i){ %> 
+                <img class="img-thumbnail" src="<%= img.url %>  " alt="">
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="image-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %> ">
+                  <label class="form-check-label" for="image-<%= i %> ">Eliminar</label>
+                </div>
+                <% }) %> 
+            </div>
+
             <button type="submit" class="btn btn-primary px-5 py-3">Actualizar</button>
         </form>
     </div>
-        <div class="col-4"></div>
+        <div class="col-lg-2"></div>
     </div>
  
 </div>
