@@ -30,7 +30,14 @@
         <div class="col-6 my-4 mt-lg-3">
             <div class="row">
                 <div class="col-12 col-lg-4 text-center imgContainer">
+                   <%   if(!propiedad.imagenes){ %>
+                        <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
+
+                  <% } else { %>
+                   
                     <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
+                    <% } %>
+
                 </div>
                 <div class="col-12 col-lg-8 px-lg-4">
                     <h2 class="text-center text-lg-start py-3 py-lg-1">

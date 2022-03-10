@@ -56,15 +56,15 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   
   router.put('/:id', isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
-  const imgs = []
   console.log(req.body);
-  const propiedad = await Propiedad.findByIdAndUpdate(id, { ...req.body });
-  imgs = [req.files.map(f => ({ url: f.path, filename: f.filename }))];
-  propiedad.imagenes.push(...imgs);
-  await propiedad.save();
-  req.flash('success', 'Publicación actualizada correctamente');
-  res.redirect(`/administrador/${propiedad.id}`)
-  
+  // const upPropiedad = await Propiedad.findByIdAndUpdate(id, req.body);
+  //   // console.log(req.files)
+  //   const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+  // upPropiedad.imagenes.push(...imgs);
+  // await upPropiedad.save();
+  // req.flash('success', 'Publicación actualizada correctamente');
+  // res.redirect(`/administrador/${upPropiedad .id}`)
+  res.send('funciono?')
   }))
   
   
@@ -72,7 +72,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   // RENDER STOCK INDIVIDUAL
   router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
     const {id} = req.params;
-    
+
    const propiedad = await Propiedad.findById(id)
    res.render('adm/propiedadIndividual',{propiedad});
   } ))
