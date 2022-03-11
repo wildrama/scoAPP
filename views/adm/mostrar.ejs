@@ -1,135 +1,125 @@
 <% layout('layouts/boilerplate')%>
-<div class="container">
-    <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
-            Inicio</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Administrador </li>
-      </ol>
-    </nav>
+    <div class="container">
+        <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg"
+                                alt="atras"></span>
+                        Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Administrador </li>
+            </ol>
+        </nav>
 
-  </div>
-<div class="propiedades container">
-    <div class="row text-end">
-        <div class="col-12">
-            <a class="btn btn-dark" href="/cerrarsesion">Cerrar sesion e ir a la web</a>
-        </div>
     </div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <h2>Todas las propiedades</h2>
-
-            <a class="btn btn-secondary " href="/administrador/nueva">Nueva publicación</a>
-           
-        </div>
-    </div>
-   
-    <div class="row">
-        <!-- casa1 -->
-
-        <% if(propiedades) {%> 
-        <% for (let propiedad of propiedades){ %> 
-        <div class="col-6 my-4 mt-lg-3">
-            <div class="row">
-                <div class="col-12 col-lg-4 text-center imgContainer">
-                 
-                    <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
-
-                </div>
-                <div class="col-12 col-lg-8 px-lg-4">
-                    <h2 class="text-center text-lg-start py-3 py-lg-1">
-                        <%=propiedad.titulo %>
-                    </h2>
-                    <h3 class="direccionPublicacion text-center text-lg-start"><span class=" mx-2"><img
-                                src="/svg/ubi.svg" alt="ubicacion"></span><%=propiedad.direccion %></h3>
-
-                    <div class="row  py-3">
-                        <div class="col-6 d-lg-none d-flex justify-content-centr">
-                            <p class=" precio">
-                                <% if(!propiedad.precio){ %>
-
-                                    <span>
-                                        $--Consultar
-                                    </span>
-
-                                <% } else{ %>
-                                    <span>
-                                    $<%=propiedad.precio %> 
-                                </span>
-                             <%     }  %> 
-
-                              
-                              </p>
-                        </div>
-                        <div class="col-6 d-none px-lg-4 d-lg-block">
-                            <p class=" precio"> 
-
-                                <% if(!propiedad.precio){ %>
-
-                                    <span>
-                                        $--Consultar
-                                    </span>
-
-                                <% } else{ %>
-                                    <span>
-                                   $ <%=propiedad.precio %> 
-                                    </span>
-                             <%     }  %> 
-                                
-                                
-                                </p>
-                        </div>
-                       
-
-
-                    </div>
-
-
-                </div>
-
-                <div class="accionesADM">
-                    <div class="row text-center justify-content-center">
-                        <div class="col-12 col-lg-12 pb-2 ">
-                            <a class="btn btn-outline-success px-5" href="/administrador/<%=propiedad._id%>">Ver publicación</a>
-
-                        </div>
-
-                        <div class="col-12 col-lg-4 pb-1">
-                            <a class="btn btn-outline-primary" href="/administrador/<%=propiedad._id%>/editar">Editar publicación</a>
-                        </div>
-                        <div class="col-12 col-lg-4">
-
-
-                            <!-- Button trigger modal -->
-
-
-  
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarpublicacion">
-    Eliminar publicación
-  </button>
-    <!-- Modal -->
-    <div class="modal fade" id="eliminarpublicacion" tabindex="-1" aria-labelledby="eliminarpublicacionLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="eliminarpublicacionLabel">Estas seguro de eliminar la publicación?</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="propiedades container">
+        <div class="row text-end">
+            <div class="col-12">
+                <a class="btn btn-dark" href="/cerrarsesion">Cerrar sesion e ir a la web</a>
             </div>
-          
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <form action="/administrador/<%=propiedad._id%>?_method=DELETE" method="post">
-                <button class="btn btn-outline-warning">Eliminar publicacion</button>
-            </form>          </div>
-          </div>
         </div>
-      </div>
-                     
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Todas las propiedades</h2>
+
+                <a class="btn btn-secondary " href="/administrador/nueva">Nueva publicación</a>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- casa1 -->
+
+            <% if(propiedades) {%>
+                <% for (let propiedad of propiedades){ %>
+                    <div class="col-6 my-4 mt-lg-3">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 text-center imgContainer">
+
+                                <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
+
                             </div>
+                            <div class="col-12 col-lg-8 px-lg-4">
+                                <h2 class="text-center text-lg-start py-3 py-lg-1">
+                                    <%=propiedad.titulo %>
+                                </h2>
+                                <h3 class="direccionPublicacion text-center text-lg-start"><span class=" mx-2"><img
+                                            src="/svg/ubi.svg" alt="ubicacion"></span>
+                                    <%=propiedad.direccion %>
+                                </h3>
+
+                                <div class="row  py-3">
+                                    <div class="col-6 d-lg-none d-flex justify-content-centr">
+                                        <p class=" precio">
+                                            <% if(propiedad.precio=='0' ){ %>
+
+                                                <span>
+                                                    $--Consultar
+                                                </span>
+
+                                                <% } else{ %>
+                                                    <span>
+                                                        $<%=propiedad.precio %>
+                                                    </span>
+                                                    <% } %>
+
+
+                                        </p>
+                                    </div>
+                                    <div class="col-6 d-none px-lg-4 d-lg-block">
+                                        <p class=" precio">
+
+                                            <% if(!propiedad.precio){ %>
+
+                                                <span>
+                                                    $--Consultar
+                                                </span>
+
+                                                <% } else{ %>
+                                                    <span>
+                                                        $ <%=propiedad.precio %>
+                                                    </span>
+                                                    <% } %>
+
+
+                                        </p>
+                                    </div>
+
+
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="accionesADM">
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-12 col-lg-12 pb-2 ">
+                                        <a class="btn btn-outline-success px-5"
+                                            href="/administrador/<%=propiedad._id%>">Ver publicación</a>
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4 pb-1">
+                                        <a class="btn btn-outline-primary"
+                                            href="/administrador/<%=propiedad._id%>/editar">Editar publicación</a>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+
+
+                                        <!-- Button trigger modal -->
+
+
+
+                                        <form action="/administrador/<%=propiedad._id%>?_method=DELETE"
+                                            method="post" >
+                                            <button class="btn btn-outline-warning">Eliminar
+                                                publicacion</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    <%} %>
+                        <%} %>
         </div>
-        <%}  %> 
-        <%}  %> 
-</div>

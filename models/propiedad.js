@@ -10,7 +10,9 @@ const ImagenSchema = new Schema({
 ImagenSchema.virtual('thumbnail').get(function() {
   return this.url.replace('/upload', '/upload/w_200');
 });
-
+ImagenSchema.virtual('show').get(function() {
+  return this.url.replace('/upload', '/upload/c_scale,h_400,w_600');
+});
 ImagenSchema.virtual('crop').get(function(){
 
   return this.url.replace('/upload', '/upload/c_scale,h_500,w_800');
