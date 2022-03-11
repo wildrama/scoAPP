@@ -24,10 +24,6 @@ async function main() {
 
 const seedProps = [{
     titulo:'Fideos PRODUCTOIMAGEN',
-    tipo:'Venta',
-    imagen:[
-        ads
-    ],
     precio:30,
     descripcion: 'MUY LINDAS CASA',
     direccion:'Maestro reina 420',
