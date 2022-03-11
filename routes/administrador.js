@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
-const ExpressError=require('../utils/ExpressError');
 const {isLoggedIn} = require('../middleware');
 const Propiedad = require('../models/propiedad');
-const storage = require('../cloudinary/index');
-const cloudinary = require('../cloudinary');
+const {storage} = require('../cloudinary/index');
+const {cloudinary} = require('../cloudinary');
 
 const multer = require('multer');
-const upload = multer(storage);
+const upload = multer({storage});
 // CRUD ADMINNN
 // router.get('/inicio', catchAsync(async(req,res)=>{
 // const user = new Usuario({email:'rambo1bc@hotmail.com',username: 'scorcelli',password:'123456'})
@@ -75,7 +74,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 }
 
   req.flash('success', 'Publicación actualizada correctamente');
-  res.redirect(`/administrador/${upPropiedad .id}`)
+  res.redirect(`/administrador/${upPropiedad._id}`)
   }))
   
   
