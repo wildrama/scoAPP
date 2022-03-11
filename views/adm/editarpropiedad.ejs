@@ -64,7 +64,7 @@
             <div class="mb-3">
 
               <% propiedad.imagenes.forEach(function(img, i){ %> 
-                <img class="img-thumbnail" src="<%= img.url %>  " alt="">
+                <img class="img-thumbnail" src="<%= img.thumbnail %>  " alt="">
 
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="image-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %> ">

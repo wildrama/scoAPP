@@ -13,7 +13,7 @@ ImagenSchema.virtual('thumbnail').get(function() {
 
 ImagenSchema.virtual('crop').get(function(){
 
-  return this.url.replace('/upload', '/upload/c_scale,h_600,w_800');
+  return this.url.replace('/upload', '/upload/c_scale,h_500,w_800');
 })
 const propiedadSchema = new mongoose.Schema({
     titulo : {
