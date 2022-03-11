@@ -45,6 +45,6 @@ const propiedadSchema = new mongoose.Schema({
   
   const Propiedad = mongoose.model('Propiedad', propiedadSchema);
 
-module.exports = Propiedad
+module.exports = Propiedad;
   
   

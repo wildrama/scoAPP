@@ -35,7 +35,7 @@ const ExpressError=require('./utils/ExpressError');
 const session =  require('express-session')
 
 const sessionConfig = {
-  secret: 'thisshouldbeabettersecret!',
+  secret: 'this!',
   resave: false,
   saveUninitialized: true,
   cookie: {

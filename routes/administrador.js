@@ -36,6 +36,8 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
    const nuevaPropiedad = new Propiedad (req.body);
    nuevaPropiedad.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
     console.log(nuevaPropiedad);
+    console.log(req.files)
+
    await nuevaPropiedad.save();
     res.redirect(`/administrador/${nuevaPropiedad._id}`)
 
@@ -60,7 +62,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   const {id} = req.params;
   console.log(req.body);
   const upPropiedad = await Propiedad.findByIdAndUpdate(id, req.body);
-    // console.log(req.files)
+    console.log(req.files)
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
   upPropiedad.imagenes.push(...imgs);
   await upPropiedad.save();

@@ -33,25 +33,25 @@
 
             <label for="titulo" class="form-label">Titulo de la publicación</label>
             <div class="input-group mb-3">
-              <input type="text" name="titulo" class="form-control" id="titulo"  value="<%= propiedad.titulo %>" >
+              <input required type="text" name="titulo" class="form-control" id="titulo"  value="<%= propiedad.titulo %>" >
             </div>
             
 
             <label for="descripcion" class="form-label">Descripcion de la publicación</label>
             <div class="input-group mb-3">
-              <input type="text" name="descripcion" class="form-control" id="descripcion"  value="<%= propiedad.descripcion %>" >
+              <input required type="text" name="descripcion" class="form-control" id="descripcion"  value="<%= propiedad.descripcion %>" >
             </div>
         
           
 
               <label for="precio" class="form-label">Precio de la publicación</label>
             <div class="input-group mb-3">
-              <input type="text" name="precio" class="form-control" id="precio"  value="<%= propiedad.precio %>">
+              <input required type="text" name="precio" class="form-control" id="precio"  value="<%= propiedad.precio %>">
             </div>
 
             <label for="direccion" class="form-label">Dirección de la publicación</label>
             <div class="input-group mb-3">
-              <input type="text" name="direccion" class="form-control" id="direccion"  value="<%= propiedad.direccion %>">
+              <input required type="text" name="direccion" class="form-control" id="direccion"  value="<%= propiedad.direccion %>">
             </div>
 
 
@@ -62,7 +62,6 @@
 
             
             <div class="mb-3">
-              <label for="imagenesDelete" class="form-label">Eliminar Imagenes</label>
 
               <% propiedad.imagenes.forEach(function(img, i){ %> 
                 <img class="img-thumbnail" src="<%= img.url %>  " alt="">
