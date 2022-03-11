@@ -52,7 +52,7 @@ const rutasUsuario = require('./routes/usuario')
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/dbScorcelli',{
+  await mongoose.connect('mongodb://localhost:27017/ScorcelliDataBase',{
     useNewUrlParser :true,
     useUnifiedTopology:true,
   });
