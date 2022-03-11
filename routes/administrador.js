@@ -5,6 +5,8 @@ const ExpressError=require('../utils/ExpressError');
 const {isLoggedIn} = require('../middleware');
 const Propiedad = require('../models/propiedad');
 const storage = require('../cloudinary/index');
+const cloudinary = require('../cloudinary');
+
 const multer = require('multer');
 const upload = multer(storage);
 // CRUD ADMINNN
@@ -56,10 +58,9 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   
   // ENVIAR PUT REQUEST
   
-  router.put('/:id', isLoggedIn,catchAsync( async (req,res)=>{
+  router.put('/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
   console.log(req.body);
-<<<<<<< HEAD
   const upPropiedad = await Propiedad.findByIdAndUpdate(id, req.body);
     console.log(req.files)
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
@@ -75,16 +76,6 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 
   req.flash('success', 'Publicación actualizada correctamente');
   res.redirect(`/administrador/${upPropiedad .id}`)
-=======
-  // const upPropiedad = await Propiedad.findByIdAndUpdate(id, req.body);
-  //   // console.log(req.files)
-  //   const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  // upPropiedad.imagenes.push(...imgs);
-  // await upPropiedad.save();
-  // req.flash('success', 'Publicación actualizada correctamente');
-  // res.redirect(`/administrador/${upPropiedad .id}`)
-  res.send('funciono?')
->>>>>>> parent of 2bd3b7c (upload casi casi)
   }))
   
   
