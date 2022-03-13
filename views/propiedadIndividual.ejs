@@ -54,7 +54,7 @@
               <div class="col-4 d-flex peso">
 
                 <p class=" precio">
-                  <% if(propiedad.precio=='0'){ %>
+                  <% if(propiedad.precio=='0' ){ %>
 
                     <span>
                       $--Consultar
@@ -70,8 +70,8 @@
                 </p>
               </div>
               <div class="col-6 ">
-                <a class=" py-2 px-2 d-flex  contactarseDesktop" href="https://wa.me/543329561425">
-                  <img class=" px-2 " src="/svg/wpicon.svg" alt="Icono Telefono">
+                <a class=" p-2  d-flex justify-content-around contactarseDesktop" href="https://wa.me/543329561425">
+                  <img class=" " src="/svg/wpicon.svg" alt="Icono Telefono">
                   Contactarse</a>
               </div>
             </div>
@@ -102,21 +102,22 @@
             <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
               data-mdb-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+              <span class="visually-hidden">Previo</span>
             </button>
             <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
               data-mdb-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+              <span class="visually-hidden">Siguiente</span>
             </button>
             <!-- Controls -->
 
             <!-- Thumbnails -->
             <div class="carousel-indicators" style="margin-bottom: -20px;">
               <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
-                
+
                 <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
-                  class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> " style="width: 100px;">
+                  class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
+                  style="width: 100px;">
                   <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
                 </button>
                 <% }) %>
@@ -130,6 +131,120 @@
 
       </div>
     </div>
+  </section>
+
+
+  <!-- mobile -->
+
+  <section class="container borderDePublicacionMobile d-lg-none">
+
+    <div class=" casaIndividualMobile py-2 pb-3">
+      <div class="row">
+        <div class="col-12 ">
+          <div class="row">
+            <div class="col-9 ">
+              <h2>
+                <%= propiedad.titulo %>
+              </h2>
+            </div>
+            <div class="col-3 pt-1 ventaTag">
+              <%= propiedad.tipo %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 pb-4 imagenesPropiedad d-flex justify-content-center">
+          <!-- Carousel wrapper -->
+          <div id="carouselExampleIndicatorsMobile" class="carousel carousel-dark slide carousel-fade"
+            data-mdb-ride="carousel">
+            <!-- Slides -->
+            <div class="carousel-inner mb-5">
+              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+
+                <div class="carousel-item <%= i === 0? 'active':''%>">
+                  <img src="<%= imagen.crop %>" class="d-block w-100" alt="..." />
+                </div>
+                <% }) %>
+
+
+            </div>
+            <!-- Slides -->
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicatorsMobile"
+              data-mdb-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previo</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicatorsMobile"
+              data-mdb-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+            <!-- Controls -->
+
+            <!-- Thumbnails -->
+            <div class="carousel-indicators" style="margin-bottom: -20px;">
+              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+
+                <button type="button" data-mdb-target="#carouselExampleIndicatorsMobile" data-mdb-slide-to="<%= i %> "
+                  class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
+                  style="width: 100px;">
+                  <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
+                </button>
+                <% }) %>
+
+            </div>
+            <!-- Thumbnails -->
+          </div>
+          <!-- Carousel wrapper -->
+
+        </div>
+        <div class="col-12 text-center pt-4 ">
+          <a class="direccionPublicacion py-4" href="#">
+            <span class="">
+              <img src="/svg/ubi.svg" alt="">
+            </span>
+            <%= propiedad.direccion %>
+          </a>
+
+        </div>
+        <div class="col-12 py-4">
+          <p class="descripcion px-3 py-2">
+            <%= propiedad.descripcion %>
+        </div>
+        <div class="row d-flex  align-items-baseline ">
+          <div class="col-6 d-flex px-3">
+
+            <p class=" precio">
+              <% if(propiedad.precio=='0' ){ %>
+
+                <span>
+                  $--Consultar
+                </span>
+
+                <% } else{ %>
+                  <span>
+                    $<%=propiedad.precio %>
+                  </span>
+                  <% } %>
+
+
+            </p>
+
+          </div>
+          <div class="col-6 ">
+            <a class=" p-2  d-flex justify-content-around contactarseDesktop" href="https://wa.me/543329561425">
+              <img class=" " src="/svg/wpicon.svg" alt="Icono Telefono">
+              Contactarse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
   </section>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
