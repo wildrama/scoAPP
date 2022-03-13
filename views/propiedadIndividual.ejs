@@ -110,11 +110,11 @@
               <span class="visually-hidden">Next</span>
             </button>
             <!-- Controls -->
-            
+
             <!-- Thumbnails -->
             <div class="carousel-indicators" style="margin-bottom: -20px;">
               <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
-
+                
                 <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
                   class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> " style="width: 100px;">
                   <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />

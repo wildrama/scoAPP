@@ -54,21 +54,20 @@
                             </div>
                             <div class="col-6 d-none px-lg-4 d-lg-block">
                                 <p class=" precio">
-                                    
-                                    <% if(!propiedad.precio){ %>
-
+                                    <% if(propiedad.precio=='0'){ %>
+                  
+                                      <span>
+                                        $--Consultar
+                                      </span>
+                  
+                                      <% } else{ %>
                                         <span>
-                                            $
-                                        <  /span>
-    
-                                    <% } else{ %>
-                                        <span>
-                                        <%=propiedad.precio %> 
-                                    </span>
-                                 <%     }  %> 
-                                    
-                                    
-                                    </p>
+                                          $<%=propiedad.precio %>
+                                        </span>
+                                        <% } %>
+                  
+                  
+                                  </p>
                             </div>
                             <div class="col-12 col-lg-6 d-flex justify-content-center ">
                              

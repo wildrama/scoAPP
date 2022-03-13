@@ -49,20 +49,20 @@
                                 <div class="row  py-3">
                                     <div class="col-6 d-lg-none d-flex justify-content-centr">
                                         <p class=" precio">
-                                            <% if(propiedad.precio=='0' ){ %>
-
+                                            <% if(propiedad.precio=='0'){ %>
+                          
+                                              <span>
+                                                $--Consultar
+                                              </span>
+                          
+                                              <% } else{ %>
                                                 <span>
-                                                    $--Consultar
+                                                  $<%=propiedad.precio %>
                                                 </span>
-
-                                                <% } else{ %>
-                                                    <span>
-                                                        $<%=propiedad.precio %>
-                                                    </span>
-                                                    <% } %>
-
-
-                                        </p>
+                                                <% } %>
+                          
+                          
+                                          </p>
                                     </div>
                                     <div class="col-6 d-none px-lg-4 d-lg-block">
                                         <p class=" precio">
