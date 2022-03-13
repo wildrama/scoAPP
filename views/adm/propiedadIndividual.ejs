@@ -3,17 +3,20 @@
   <div class="container">
     <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg"
+                alt="atras"></span>
             Inicio</a></li>
         <li class="breadcrumb-item"><a href="/administrador"> Administrador</a></li>
-        <li class="breadcrumb-item active" aria-current="page"> <%= propiedad.titulo %> </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <%= propiedad.titulo %>
+        </li>
       </ol>
     </nav>
 
   </div>
 
 
-  <section class="container d-none d-lg-block borderDePublicacionDesktop ">
+  <section class="container d-none d-md-block borderDePublicacionDesktop ">
 
     <div class=" casaIndividualDesktop py-2 pb-3 text-center">
       <div class="row ">
@@ -24,7 +27,9 @@
             <div class="col-12  ">
 
 
-              <h2 class="tituloDesktop"><%= propiedad.titulo %></h2>
+              <h2 class="tituloDesktop">
+                <%= propiedad.titulo %>
+              </h2>
 
 
             </div>
@@ -33,7 +38,7 @@
             <div class="col-12 ">
               <p class="descripcionDesktop px-3 py-3">
                 <%= propiedad.descripcion %>
-            </p>
+              </p>
             </div>
 
             <div class="col-12 py-3 ">
@@ -51,20 +56,20 @@
                 <p class=" precio">
                   <% if(!propiedad.precio){ %>
 
+                    <span>
+                      $--Consultar
+                    </span>
+
+                    <% } else{ %>
                       <span>
-                          $--Consultar
+                        $<%=propiedad.precio %>
                       </span>
+                      <% } %>
 
-                  <% } else{ %>
-                      <span>
-                      $<%=propiedad.precio %> 
-                  </span>
-               <%     }  %> 
 
-                
-</p>
+                </p>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -72,71 +77,158 @@
           <div class="ventaTag">
             Venta
           </div>
-        <!-- Carousel wrapper -->
-<div
-id="carouselExampleIndicators"
-class="carousel carousel-dark slide carousel-fade"
-data-mdb-ride="carousel"
->
-<!-- Slides -->
-<div class="carousel-inner ">
-  <% propiedad.imagenes.forEach( ( imagen , i ) => { %> 
+          <!-- Carousel wrapper -->
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
+            data-mdb-ride="carousel">
+            <!-- Slides -->
+            <div class="carousel-inner ">
+              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
 
-  <div class="carousel-item <%= i === 0? 'active':''%>">
-    <img src="<%= imagen.crop %>" class="d-block w-100" alt="..." />
-  </div>
-  <% }) %> 
+                <div class="carousel-item <%= i === 0? 'active':''%>">
+                  <img src="<%= imagen.crop %>" class="d-block w-100" alt="..." />
+                </div>
+                <% }) %>
 
-  
-</div>
-<!-- Slides -->
 
-<!-- Controls -->
-<button
-  class="carousel-control-prev"
-  type="button"
-  data-mdb-target="#carouselExampleIndicators"
-  data-mdb-slide="prev"
->
-  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  <span class="visually-hidden">Previous</span>
-</button>
-<button
-  class="carousel-control-next"
-  type="button"
-  data-mdb-target="#carouselExampleIndicators"
-  data-mdb-slide="next"
->
-  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  <span class="visually-hidden">Next</span>
-</button>
-<!-- Controls -->
+            </div>
+            <!-- Slides -->
 
-<!-- Thumbnails -->
-<div class="carousel-indicators" style="margin-bottom: -20px;">
-  <% propiedad.imagenes.forEach( ( imagen , i ) => { %> 
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
+              data-mdb-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
+              data-mdb-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <!-- Controls -->
 
-  <button
-    type="button"
-    data-mdb-target="#carouselExampleIndicators"
-    data-mdb-slide-to="<%= i %> "
-    class="<%= i === 0? 'active':''%>"
-    aria-current="true"
-    aria-label="Slide 1"
-      style="width: 100px;"
-  >
-    <img
-      class="d-block w-100"
-      src="<%= imagen.thumbnail %>"
-      class="img-fluid"
-    />
-  </button>
-  <% }) %> 
+            <!-- Thumbnails -->
+            <div class="carousel-indicators" style="margin-bottom: -20px;">
+              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
 
-</div>
-<!-- Thumbnails -->
-</div>
-<!-- Carousel wrapper -->
+                <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
+                  class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide 1" style="width: 100px;">
+                  <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
+                </button>
+                <% }) %>
+
+            </div>
+            <!-- Thumbnails -->
+          </div>
+          <!-- Carousel wrapper -->
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="d-md-none casaIndividualDesktop py-2 pb-3 text-center">
+      <div class="row ">
+        <div class="col-6">
+
+          <div class="row mx-3">
+
+            <div class="col-12  ">
+
+
+              <h2 class="tituloDesktop">
+                <%= propiedad.titulo %>
+              </h2>
+
+
+            </div>
+
+
+            <div class="col-12 ">
+              <p class="descripcionDesktop px-3 py-3">
+                <%= propiedad.descripcion %>
+              </p>
+            </div>
+
+            <div class="col-12 py-3 ">
+              <a class="direccionPublicacionDesktop" href="#">
+                <span class="px-2">
+                  <img class="ubiWebIcon" src="/svg/ubi.svg" alt="Icono Ubicacion">
+                </span>
+                <%= propiedad.direccion %>
+
+              </a>
+
+            </div>
+            <div class="row  mt-5 align-items-baseline ">
+              <div class="col-6 d-flex px-4 peso">
+                <p class=" precio">
+                  <% if(!propiedad.precio){ %>
+
+                    <span>
+                      $--Consultar
+                    </span>
+
+                    <% } else{ %>
+                      <span>
+                        $<%=propiedad.precio %>
+                      </span>
+                      <% } %>
+
+
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="ventaTag">
+            Venta
+          </div>
+          <!-- Carousel wrapper -->
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
+            data-mdb-ride="carousel">
+            <!-- Slides -->
+            <div class="carousel-inner ">
+              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+
+                <div class="carousel-item <%= i === 0? 'active':''%>">
+                  <img src="<%= imagen.crop %>" class="d-block w-100" alt="..." />
+                </div>
+                <% }) %>
+
+
+            </div>
+            <!-- Slides -->
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
+              data-mdb-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
+              data-mdb-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <!-- Controls -->
+
+            <!-- Thumbnails -->
+            <div class="carousel-indicators" style="margin-bottom: -20px;">
+              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+
+                <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
+                  class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide 1" style="width: 100px;">
+                  <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
+                </button>
+                <% }) %>
+
+            </div>
+            <!-- Thumbnails -->
+          </div>
+          <!-- Carousel wrapper -->
         </div>
 
       </div>
@@ -144,11 +236,5 @@ data-mdb-ride="carousel"
   </section>
 
 
-  
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
-
-
-
-
-
-
