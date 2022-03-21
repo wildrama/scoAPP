@@ -43,7 +43,6 @@
             </div>
         
           
-
               <label for="precio" class="form-label">Precio de la publicación</label>
             <div class="input-group mb-3">
               <input required type="text" name="precio" class="form-control" id="precio"  value="<%= propiedad.precio %>">
@@ -64,11 +63,11 @@
             <div class="mb-3">
 
               <% propiedad.imagenes.forEach(function(img, i){ %> 
-                <img class="img-thumbnail" src="<%= img.thumbnail %>  " alt="">
+                <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="">
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="image-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %> ">
-                  <label class="form-check-label" for="image-<%= i %> ">Eliminar</label>
+                  <input class="form-check-input" type="checkbox" id="imagen-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %>">
+                  <label class="form-check-label" for="imagen-<%= i %> ">Eliminar</label>
                 </div>
                 <% }) %> 
             </div>

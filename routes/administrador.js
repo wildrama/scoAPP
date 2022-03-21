@@ -4,7 +4,7 @@ const catchAsync =require('../utils/catchAsync');
 const {isLoggedIn} = require('../middleware');
 const Propiedad = require('../models/propiedad');
 const {storage} = require('../cloudinary/index');
-const {cloudinary} = require('../cloudinary');
+const {cloudinary} = require('../cloudinary/index');
 
 const multer = require('multer');
 const upload = multer({storage});
