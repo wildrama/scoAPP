@@ -16,7 +16,7 @@ ImagenSchema.virtual('show').get(function() {
 ImagenSchema.virtual('crop').get(function(){
 
   return this.url.replace('/upload', '/upload/c_scale,h_500,w_800');
-})
+});
 const propiedadSchema = new mongoose.Schema({
     titulo : {
       type: String,
@@ -41,8 +41,6 @@ const propiedadSchema = new mongoose.Schema({
       type:String
 
   },
-
-
   })
   
   const Propiedad = mongoose.model('Propiedad', propiedadSchema);
