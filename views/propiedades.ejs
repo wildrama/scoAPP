@@ -21,11 +21,11 @@
             <div class="col-12  my-4 mt-lg-3">
                 <div class="row">
                     <div class="col-12 col-lg-4 text-center imgContainer">
-                        if(!propiedad.imagenes){
+                       <%if(!propiedad.imagenes){%>  
                             <img class="img-fluid" src="hero1.jpg" alt=" ">
 
                             <% } else{ %>
-                                <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
+                                <img class="img-fluid" src="<%= propiedad.imagenes[0].show %> " alt=" ">
 
                         <%  } %>
 
