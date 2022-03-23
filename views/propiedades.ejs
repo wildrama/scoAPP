@@ -2,8 +2,7 @@
 
     <nav class="container indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/"><span class="mx-1"><img src="/svg/arrowBack.svg"
-                            alt="atras"></span>
+            <li class="breadcrumb-item"><a href="/"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
                     Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Propiedades</li>
         </ol>
@@ -15,88 +14,93 @@
 
         <div class="row">
             <!-- casa1 -->
-            <% if(propiedades) {%> 
+            <% if(propiedades) {%>
 
-            <% for (let propiedad of propiedades){ %> 
-            <div class="col-12  my-4 mt-lg-3">
-                <div class="row">
-                    <div class="col-12 col-lg-4 text-center imgContainer">
-                       <%if(!propiedad.imagenes){%>  
-                            <img class="img-fluid" src="hero1.jpg" alt=" ">
+                <% for (let propiedad of propiedades){ %>
+                    <div class="col-12  my-4 mt-lg-3">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 text-center imgContainer">
+                                <%if(!propiedad.imagenes){%>
+                                    <img class="img-fluid" src="hero1.jpg" alt=" ">
 
-                            <% } else{ %>
-                                <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
-
-                        <%  } %>
-
-
-                        <p class="top-right"><%= propiedad.tipo %> </p>
-
-                                     
-                    </div>
-                    <div class="col-12 col-lg-8 px-lg-4">
-                        <h2 class="text-center text-lg-start py-3 py-lg-1">
-                            <%=propiedad.titulo %>
-                        </h2>
-                        <h3 class="direccionPublicacion text-center text-lg-start"><span class=" mx-2"><img
-                                    src="/svg/ubi.svg" alt="ubicacion"></span><%=propiedad.direccion %></h3>
-
-                        <div class="row  py-3">
-                            <div class="col-6 d-lg-none d-flex justify-content-center">
-                                <p class=" precio">
-                                    <% if(!propiedad.precio){ %>
-
-                                        <span>
-                                           <strong>$--</strong> Consultar
-                                        </span>
-    
                                     <% } else{ %>
-                                        <span>
-                                       $ <%=propiedad.precio %> 
-                                    </span>
-                                 <%     }  %> 
-                                     
-                                     </p>
-                            </div>
-                            <div class="col-6 d-none px-lg-4 d-lg-block">
-                                <p class=" precio">
-                                    <% if(propiedad.precio=='0'){ %>
-                  
-                                      <span>
-                                        $--Consultar
-                                      </span>
-                  
-                                      <% } else{ %>
-                                        <span>
-                                          $<%=propiedad.precio %>
-                                        </span>
+                                        <img class="img-fluid" src="<%= propiedad.imagenes[0].url %> " alt=" ">
+
                                         <% } %>
-                  
-                  
-                                  </p>
-                            </div>
-                            <div class="col-12 col-lg-6 d-flex justify-content-center ">
-                             
-                                <a class="d-lg-none verMasLG px-5  " href="/propiedades/<%=propiedad._id%>">
-                                    <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
-                                    Ver Más</a>
 
-                                    <a class="d-none d-lg-block verMasLG px-5  " href="/propiedades/<%=propiedad._id%>">
-                                        <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
-                                        Ver Más</a>
+
+                                            <p class="top-right">
+                                                <%= propiedad.tipo %>
+                                            </p>
+
 
                             </div>
+                            <div class="col-12 col-lg-8 px-lg-4">
+                                <h2 class="text-center text-lg-start py-3 py-lg-1">
+                                    <%=propiedad.titulo %>
+                                </h2>
+                                <h3 class="direccionPublicacion text-center text-lg-start"><span class=" mx-2"><img
+                                            src="/svg/ubi.svg" alt="ubicacion"></span>
+                                    <%=propiedad.direccion %>
+                                </h3>
+
+                                <div class="row  py-3">
+                                    <div class="col-6 d-lg-none d-flex justify-content-center">
+                                        <p class=" precio">
+                                            <% if(!propiedad.precio){ %>
+
+                                                <span>
+                                                    <strong>$--</strong> Consultar
+                                                </span>
+
+                                                <% } else{ %>
+                                                    <span>
+                                                        $ <%=propiedad.precio %>
+                                                    </span>
+                                                    <% } %>
+
+                                        </p>
+                                    </div>
+                                    <div class="col-6 d-none px-lg-4 d-lg-block">
+                                        <p class=" precio">
+                                            <% if(propiedad.precio=='0' ){ %>
+
+                                                <span>
+                                                    $--Consultar
+                                                </span>
+
+                                                <% } else{ %>
+                                                    <span>
+                                                        $<%=propiedad.precio %>
+                                                    </span>
+                                                    <% } %>
 
 
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-lg-6 d-flex justify-content-center ">
+
+                                        <a class="d-lg-none verMasLG px-5  " href="/propiedades/<%=propiedad._id%>">
+                                            <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
+                                            Ver Más</a>
+
+                                        <a class="d-none d-lg-block verMasLG px-5  "
+                                            href="/propiedades/<%=propiedad._id%>">
+                                            <span><img src="/svg/casaIcono.svg" alt="Ver Más"></span>
+                                            Ver Más</a>
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
                         </div>
-
-
                     </div>
-                </div>
-            </div>
-            <%}  %> 
-            <%}  %> 
+                    <%} %>
+                        <%} %>
 
         </div>
 
-        </section>
+    </section>
