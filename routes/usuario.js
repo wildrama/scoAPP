@@ -9,22 +9,22 @@ router.get('/registro',  (req,res)=>{
 res.render('adm/registro');
 });
 
-router.post('/registro', catchAsync(async(req,res)=>{
+router.post('/r', catchAsync(async(req,res)=>{
 
-    try {
-        const { email, username, password } = req.body;
-        const user = new Usuario({email, username});
-        const usuarioRegistrado = await Usuario.register(user,password);
-        req.login(usuarioRegistrado, err => {
-            if (err) return next(err);
-            req.flash('success', 'Bienvenido a la sesión de administrador');
-            res.redirect('/administrador');
-        })
-    } catch (e) {
-        const errorRegisterMSG = 'Ya existe un usuario con ese nombre'
-        req.flash('error', errorRegisterMSG);
-        res.redirect('/registro');
-    }
+//     try {
+//         const { email, username, password } = req.body;
+//         const user = new Usuario({email, username});
+//         const usuarioRegistrado = await Usuario.register(user,password);
+//         req.login(usuarioRegistrado, err => {
+//             if (err) return next(err);
+//             req.flash('success', 'Bienvenido a la sesión de administrador');
+//             res.redirect('/administrador');
+//         })
+//     } catch (e) {
+//         const errorRegisterMSG = 'Ya existe un usuario con ese nombre'
+//         req.flash('error', errorRegisterMSG);
+//         res.redirect('/registro');
+//     }
    
 }));
 
