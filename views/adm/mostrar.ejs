@@ -33,8 +33,15 @@
                     <div class="col-6 my-4 mt-lg-3">
                         <div class="row">
                             <div class="col-12 col-lg-4 text-center imgContainer">
-                        
-                                <img class="img-fluid" src="<%= propiedad.imagenes[0].crop %> " alt=" ">
+
+
+                                <% if (propiedad.imagenes.url) { %>
+                                    <img class="img-fluid" src="<%= propiedad.imagenes[0].crop %>" alt="imagen">
+    
+                                  <% } else{ %>
+                                    <img class="img-fluid" src="hero1.jpg" alt="Imagen">
+    
+                                  <% } %>
 
                             </div>
                             <div class="col-12 col-lg-8 px-lg-4">
