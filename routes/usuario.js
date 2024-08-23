@@ -12,8 +12,8 @@ res.render('adm/registro');
 router.post('/r', catchAsync(async(req,res)=>{
 
     try {
-        const { username, password } = req.body;
-        const user = new Usuario({ username});
+        const { email, username, password } = req.body;
+        const user = new Usuario({email, username});
         const usuarioRegistrado = await Usuario.register(user,password);
         req.login(usuarioRegistrado, err => {
             if (err) return next(err);
