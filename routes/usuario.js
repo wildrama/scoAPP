@@ -19,7 +19,7 @@ router.post('/r', catchAsync(async(req,res)=>{
             if (err) return next(err);
             req.flash('success', 'Bienvenido a la sesión de administrador');
             res.redirect('/administrador');
-        })
+        }) 
     } catch (e) {
         const errorRegisterMSG = 'Ya existe un usuario con ese nombre'
         req.flash('error', errorRegisterMSG);
